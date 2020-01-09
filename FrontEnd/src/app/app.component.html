@@ -1,0 +1,29 @@
+<div>
+  <h1>GitHub API Demo</h1>
+
+  <img src="../assets/refresh.png" (click)="onRefresh()" />
+
+  <div *ngIf="data">
+    <div *ngFor="let item of data; trackBy: item">
+      <table>
+        <tr>
+          <td rowspan="2">
+            <img src="{{ item.committer.avatar_url }}" class="avatar" />
+          </td>
+          <td width="60%">
+            <strong>{{ item.commit.message | limitTo: 60 }}</strong>
+          </td>
+        </tr>
+        <tr class="smallfont">
+          <td>
+            <strong>{{ item.committer.login }}</strong>
+            <span> committed {{ item.interval }}</span>
+          </td>
+          <td>
+            <span>commit : {{ item.sha }}</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
